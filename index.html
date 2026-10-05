@@ -163,9 +163,11 @@
   .s04 { background: #0b0b0b; }
 
   .s04 .t { font-size: 230px; color: #f4b5ee; left: 0; right: 0; text-align: center; }
-  .s04 .body { color: #f4b5ee; font-weight: 500; }
-  .s04 .cr { top: 640px; font: 500 20px "HN"; line-height: 1.25; letter-spacing: .02em; text-transform: uppercase; color: #f4b5ee; }
-  .s04 .cut { font-size: 150px; color: #f4b5ee; left: 0; right: 0; text-align: center; top: 1010px; }
+  .s04 .body { color: #f4b5ee; font-weight: 600; font-size: 18px; text-align: left; }
+  .s04 .dim { filter: brightness(.62) saturate(1.05); }   /* 2026-10-05 «текст не читается розовый»: the loop muted like the pin's photo */
+  .s04 .shade { left: 0; top: 0; width: 1920px; height: 1080px; background: linear-gradient(90deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 32%, rgba(0,0,0,0) 62%, rgba(0,0,0,.5) 100%); }
+  .s04 .cr { top: 640px; font: 600 20px "HN"; line-height: 1.25; letter-spacing: .02em; text-transform: uppercase; color: #f4b5ee; }
+  .s04 .cut { font-size: 150px; color: #f4b5ee; left: 0; right: 0; text-align: center; top: 904px; }   /* whole now: cropped it read as a slipped slide */
 
 /* ── s05.html ── */
 @font-face { font-family: "HN"; font-weight: 400; src: url("media/fonts/HelveticaNeue-Roman.otf") format("opentype"); font-display: block; }
@@ -423,10 +425,11 @@
 </section></div>
 <div class="plate" data-n="5"><section data-slide="4" style="--w:1920; --h:1080" class="slide s04" id="colour" aria-label="Colour code">
 
-  <video class="abs loop " muted playsinline loop autoplay preload="none" poster="media/fig/f04-g1.jpg" style="left:0; top:0; width:1920px; height:1080px; object-position:50% 50%" aria-label="Мужчина с телефоном в бирюзовой квартире"><source src="media/fig/f04-g1.webm" type="video/webm"><source src="media/fig/f04-g1.mp4" type="video/mp4"></video>
+  <video class="abs loop dim" muted playsinline loop autoplay preload="none" poster="media/fig/f04-g1.jpg" style="left:0; top:0; width:1920px; height:1080px; object-position:50% 50%" aria-label="Мужчина с телефоном в бирюзовой квартире"><source src="media/fig/f04-g1.webm" type="video/webm"><source src="media/fig/f04-g1.mp4" type="video/mp4"></video>
+  <div class="abs shade"></div>
   <div class="abs cap ext t" style="top:140px">COLOUR</div>
   <div class="abs cap ext t" style="top:350px">CODE</div>
-  <div class="abs body caps" style="left:40px; top:640px; width:330px"><p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit.</p></div>
+  <div class="abs body caps" style="left:56px; top:600px; width:380px"><p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit.</p></div>
   <div class="abs cr" style="left:1330px">director’s treatment<br>colour</div>
   <div class="abs cr" style="left:1660px">Oleg Trofim<br>page 07/43</div>
   <div class="abs cap ext cut">(комбинации)</div>
