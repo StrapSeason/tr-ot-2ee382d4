@@ -196,7 +196,19 @@
 
   .s05 .t { font-size: 1080px; color: #ffffff; left: 50%; top: 110px; transform: translateX(-50%); }
   .s05 .lb { top: 948px; font-size: 44px; color: #ffffff; }
-  .s05 .ph { box-shadow: 0 26px 60px rgba(0,0,0,.6); }
+  .s05 .deckbox { left: 660px; top: 150px; width: 560px; height: 700px; }
+  .s05 .swap { position: absolute; inset: 0; animation: s05-shuffle 8s cubic-bezier(.7,0,.25,1) infinite; }
+  .s05 .swap.b { animation-delay: -4s; }
+  .s05 .swap img { width: 100%; height: 100%; object-fit: cover; display: block; box-shadow: 0 26px 60px rgba(0,0,0,.6); }
+  @keyframes s05-shuffle {
+    0%, 36% { transform: translate(0, 0) rotate(-3deg); z-index: 2; }
+    46%     { transform: translate(640px, 30px) rotate(13deg); z-index: 2; }
+    47%     { transform: translate(640px, 30px) rotate(13deg); z-index: 1; }
+    58%, 86% { transform: translate(100px, -30px) rotate(7deg); z-index: 1; }
+    97%     { transform: translate(0, 0) rotate(-3deg); z-index: 1; }
+    98%, 100% { transform: translate(0, 0) rotate(-3deg); z-index: 2; }
+  }
+  @media (prefers-reduced-motion: reduce) { .s05 .swap { animation: none; } .s05 .swap.b { transform: translate(100px, -30px) rotate(7deg); z-index: 1; } .s05 .swap.a { transform: rotate(-3deg); z-index: 2; } }
   .s05 .body { color: #ffffff; }
 
 /* ── s06.html ── */
@@ -438,8 +450,7 @@
 <div class="plate" data-n="6"><section data-slide="5" style="--w:1920; --h:1080" class="slide s05" id="cloth" aria-label="Cloth">
 
   <div class="abs cap dsp t">cloth</div>
-  <img class="abs ph" src="media/fig/f05-i2.jpg" alt="Образ: жёлтый пуховик" style="left:760px; top:120px; width:560px; height:700px; transform:rotate(7deg); object-position:50% 50%">
-  <img class="abs ph" src="media/fig/f05-i1.jpg" alt="Образ: оранжевый пуховик" style="left:660px; top:150px; width:560px; height:700px; transform:rotate(-3deg); object-position:50% 50%">
+  <div class="abs deckbox"><div class="swap a"><img src="media/fig/f05-i1.jpg" alt="Образ: оранжевый пуховик"></div><div class="swap b"><img src="media/fig/f05-i2.jpg" alt="Образ: жёлтый пуховик"></div></div>
   <div class="abs cap dsp lb" style="left:48px">director’s treatment</div>
   <div class="abs cap dsp lb" style="left:600px">Oleg Trofim</div>
   <div class="abs cap dsp lb" style="left:1150px">cloth</div>
