@@ -196,6 +196,7 @@
 
   .s05 .t { font-size: 1080px; color: #ffffff; left: 50%; top: 110px; transform: translateX(-50%); }
   .s05 .lb { top: 948px; font-size: 44px; color: #ffffff; }
+  .s05 .gif { box-shadow: 0 18px 44px rgba(0,0,0,.55); }   /* 2026-10-05: four Refsee loops on the white of the letters («у нас мало гифок») */
   .s05 .deckbox { left: 660px; top: 150px; width: 560px; height: 700px; }
   .s05 .swap { position: absolute; inset: 0; animation: s05-shuffle 8s cubic-bezier(.7,0,.25,1) infinite; }
   .s05 .swap.b { animation-delay: -4s; }
@@ -450,6 +451,10 @@
 <div class="plate" data-n="6"><section data-slide="5" style="--w:1920; --h:1080" class="slide s05" id="cloth" aria-label="Cloth">
 
   <div class="abs cap dsp t">cloth</div>
+  <video class="abs loop gif" muted playsinline loop autoplay preload="none" poster="media/fig/cl-rains.jpg" style="left:96px; top:150px; width:300px; height:390px; transform:rotate(-4deg); object-position:50% 30%" aria-label="Огромный белый пуховик"><source src="media/fig/cl-rains.webm" type="video/webm"><source src="media/fig/cl-rains.mp4" type="video/mp4"></video>
+  <video class="abs loop gif" muted playsinline loop autoplay preload="none" poster="media/fig/cl-neom.jpg" style="left:286px; top:600px; width:340px; height:214px; transform:rotate(3deg); object-position:50% 45%" aria-label="Девушка на рыжих камнях пустыни"><source src="media/fig/cl-neom.webm" type="video/webm"><source src="media/fig/cl-neom.mp4" type="video/mp4"></video>
+  <video class="abs loop gif" muted playsinline loop autoplay preload="none" poster="media/fig/cl-blow.jpg" style="left:1430px; top:96px; width:400px; height:225px; transform:rotate(4deg); object-position:50% 50%" aria-label="Толпа в надувных синих костюмах"><source src="media/fig/cl-blow.webm" type="video/webm"><source src="media/fig/cl-blow.mp4" type="video/mp4"></video>
+  <video class="abs loop gif" muted playsinline loop autoplay preload="none" poster="media/fig/cl-foil.jpg" style="left:1560px; top:430px; width:270px; height:350px; transform:rotate(-3deg); object-position:30% 40%" aria-label="Шапка из фольги и жёлтый мех"><source src="media/fig/cl-foil.webm" type="video/webm"><source src="media/fig/cl-foil.mp4" type="video/mp4"></video>
   <div class="abs deckbox"><div class="swap a"><img src="media/fig/f05-i1.jpg" alt="Образ: оранжевый пуховик"></div><div class="swap b"><img src="media/fig/f05-i2.jpg" alt="Образ: жёлтый пуховик"></div></div>
   <div class="abs cap dsp lb" style="left:48px">director’s treatment</div>
   <div class="abs cap dsp lb" style="left:600px">Oleg Trofim</div>
