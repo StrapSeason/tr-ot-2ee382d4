@@ -16,6 +16,18 @@
     }
   }
   fit();
+  // phones: the caps body text shrinks to ~7 px with the slide, so set it larger and bold there (2026-10-05, the user's
+  // reference: bold white caps). Desktop keeps the deck's sizes.
+  if (matchMedia('(pointer: coarse), (max-width: 1000px)').matches)
+    document.querySelectorAll('.plate .slide .body.caps').forEach((el) => {
+      el.style.fontWeight = '700';
+      if (el.closest('.sheet')) return;                                     // the paper card has no room to grow: bold only
+      const F = 1.25, w = el.offsetWidth * F, x = el.offsetLeft;              // the box grows with the type, so lines break the same way
+      el.style.fontSize = (parseFloat(getComputedStyle(el).fontSize) * F).toFixed(1) + 'px';
+      el.style.width = w.toFixed(0) + 'px';
+      if (x + w > 1880) el.style.left = Math.max(40, 1880 - w).toFixed(0) + 'px';
+      el.style.fontWeight = '700';
+    });
   // phones change the height while scrolling (address bar): only a new width re-fits and re-measures
   let lastW = innerWidth;
   addEventListener('resize', () => { if (innerWidth === lastW) return; lastW = innerWidth;
