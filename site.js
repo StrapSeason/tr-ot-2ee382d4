@@ -16,6 +16,23 @@
     }
   }
   fit();
+
+  // text-box fallback (2026-10-07, «он плывет»): the giant words sit on `text-box: trim-both cap alphabetic`; browsers
+  // without it (older iOS Safari, Firefox) draw them lower, onto the text below. There, lift each .cap line by the gap
+  // between its line box top and its cap height, measured from the font itself. ?notb=1 forces it for testing.
+  const NOTB = /[?&]notb=1/.test(location.search);
+  if (NOTB) { const st = document.createElement('style'); st.textContent = '.cap{text-box:normal!important}'; document.head.appendChild(st); }
+  if (NOTB || !(window.CSS && CSS.supports('text-box', 'trim-both cap alphabetic'))) {
+    const cx = document.createElement('canvas').getContext('2d');
+    document.fonts.ready.then(() => document.querySelectorAll('.plate .slide .cap').forEach((el) => {
+      const cs = getComputedStyle(el), fs = parseFloat(cs.fontSize);
+      cx.font = `${cs.fontStyle} ${cs.fontWeight} ${fs}px ${cs.fontFamily}`;
+      const m = cx.measureText('H'), asc = m.fontBoundingBoxAscent, desc = m.fontBoundingBoxDescent, cap = m.actualBoundingBoxAscent;
+      if (!asc || !cap) return;
+      const lh = cs.lineHeight === 'normal' ? asc + desc : parseFloat(cs.lineHeight);
+      el.style.marginTop = (-((lh - asc - desc) / 2 + asc - cap)).toFixed(1) + 'px';
+    }));
+  }
   // phones: the caps body text shrinks to ~7 px with the slide, so set it larger and bold there (2026-10-05, the user's
   // reference: bold white caps). Desktop keeps the deck's sizes.
   if (matchMedia('(pointer: coarse), (max-width: 1000px)').matches)
